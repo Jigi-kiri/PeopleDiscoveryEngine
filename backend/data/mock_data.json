@@ -1,0 +1,86 @@
+[
+	{
+		"id": 1,
+		"name": "Alex Rivera",
+		"bio": "Indie filmmaker who loves hiking and absurd humor.",
+		"interests": [
+			"film",
+			"hiking",
+			"philosophy"
+		],
+		"vibe": "quirky, introspective, Tarantino-esque",
+		"embedding": [
+			0.21,
+			-0.45,
+			0.32,
+			-0.67,
+			0.89
+		]
+	},
+	{
+		"id": 2,
+		"name": "Jamie Chen",
+		"bio": "AI researcher into ethics and cat memes.",
+		"interests": [
+			"AI ethics",
+			"cats",
+			"sci-fi"
+		],
+		"vibe": "analytical, dry humor, futuristic",
+		"embedding": [
+			-0.12,
+			0.78,
+			-0.23,
+			0.45,
+			-0.56
+		]
+	},
+	{
+		"id": 3,
+		"name": "Taylor Smith",
+		"bio": "Musician who dabbles in surrealist art.",
+		"interests": [
+			"music",
+			"painting",
+			"psychedelics"
+		],
+		"vibe": "bohemian, chaotic, David Lynch-like",
+		"embedding": [
+			0.45,
+			-0.67,
+			0.89
+		]
+	},
+	{
+		"id": 4,
+		"name": "Morgan Lee",
+		"bio": "Startup founder obsessed with stoicism and jazz.",
+		"interests": [
+			"entrepreneurship",
+			"jazz",
+			"stoicism"
+		],
+		"vibe": "intense, smooth, Miles Davis vibes",
+		"embedding": [
+			-0.89,
+			0.34,
+			-0.56
+		]
+	},
+	{
+		"id": 5,
+		"name": "Riley Park",
+		"bio": "Writer who loves slow cinema and baking.",
+		"interests": [
+			"writing",
+			"film",
+			"baking"
+		],
+		"vibe": "melancholic, warm, Tarkovsky fan",
+		"embedding": [
+			0.67,
+			-0.12,
+			0.45
+		]
+	}
+]
