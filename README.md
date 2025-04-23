@@ -235,6 +235,10 @@ This iterative approach, involving continuous testing, debugging, and refactorin
 
 ## Demo
 https://aifindr-frontend-7dtt9yd39-jigneshs-projects-4d9fb18e.vercel.app/
+<img width="1435" alt="Screenshot 2025-04-23 at 11 36 18 AM" src="https://github.com/user-attachments/assets/cb7731b7-7f81-46c7-aca2-d4206cd52882" />
+<img width="1435" alt="Screenshot 2025-04-23 at 11 42 55 AM" src="https://github.com/user-attachments/assets/7f02f9e6-c965-4f7e-993d-5ce12238ac1d" />
+
+
 
 ## 🙏 Acknowledgments
 
