@@ -233,6 +233,9 @@ This section outlines the step-by-step approach taken to develop and deploy the 
 
 This iterative approach, involving continuous testing, debugging, and refactoring, ensured the successful development and deployment of the AIFindr application.
 
+## Demo
+https://aifindr-frontend-7dtt9yd39-jigneshs-projects-4d9fb18e.vercel.app/
+
 ## 🙏 Acknowledgments
 
 - Mistral AI for natural language processing
