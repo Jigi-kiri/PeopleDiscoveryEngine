@@ -3,7 +3,12 @@
   "builds": [
     {
       "src": "main.py",
-      "use": "@vercel/python"
+      "use": "@vercel/python",
+      "config": {
+        "runtime": "python3.11",
+        "maxLambdaSize": "20mb",
+        "includeFiles": ["services/**", "data/**", "main.py", "requirements.txt", "runtime.txt"]
+      }
     }
   ],
   "routes": [

@@ -6,6 +6,7 @@ import sys
 from pathlib import Path
 import numpy as np
 import faiss
+from fastapi import APIRouter
 
 # Add the backend directory to Python path
 backend_dir = Path(__file__).resolve().parent
@@ -113,3 +114,11 @@ async def search(query: SearchQuery):
     except Exception as e:
         print(f"Unexpected error: {e}")
         raise HTTPException(status_code=500, detail="An unexpected error occurred")
+
+router = APIRouter()
+
+@router.get("/health")
+async def health_check():
+    return {"status": "ok"}
+
+app.include_router(router)
