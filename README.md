@@ -102,23 +102,23 @@ Frontend will be available at `http://localhost:5173`
 
 ## 🌐 Deployment
 
-The application is configured for deployment on Vercel:
+The application is configured for deployment on Render:
 
 ### Backend Deployment
-```bash
-cd backend
-vercel
-```
+1. Create a Render account at [https://render.com/](https://render.com/)
+2. Create a `render.yaml` file in the root of your backend directory.
+3. Connect your Git repository to Render.
+4. Configure your web service:
+   - **Runtime**: Python 3
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `uvicorn main:app --host 0.0.0.0 --port $PORT`
+   - **Health Check Path**: `/health`
+5. Set environment variables:
+   - `MISTRAL_API_KEY`: Your Mistral API key
+   - `MISTRAL_MODEL`: `mistral-large-latest`
 
 ### Frontend Deployment
-```bash
-cd frontend
-vercel
-```
-
-Make sure to set up the following environment variables in Vercel:
-- Backend: MISTRAL_API_KEY, MISTRAL_MODEL
-- Frontend: VITE_API_URL (pointing to your deployed backend URL)
+1. Deploy the frontend to Render or Vercel, ensuring the `VITE_API_URL` points to your deployed backend URL.
 
 ## 🎨 Theme Customization
 
@@ -139,6 +139,99 @@ The application supports full theme customization through CSS variables in `App.
 ## 📝 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 💡 Problem-Solving Approach
+
+This section outlines the step-by-step approach taken to develop and deploy the AIFindr application, highlighting the challenges encountered and the solutions implemented.
+
+### 1. Initial Setup and FastAPI Backend
+
+- **Objective**: Set up a basic FastAPI backend with a search endpoint.
+- **Steps**:
+    - Created `main.py` with a `/search` endpoint.
+    - Implemented basic query parsing, embedding generation, and similarity search.
+- **Challenges**:
+    - Encountered import errors due to relative imports.
+    - Faced issues with the structure of the FastAPI endpoint.
+- **Solutions**:
+    - Switched to absolute imports for better module resolution.
+    - Defined the request body using Pydantic models for proper data validation.
+
+### 2. Integrating AI and Semantic Search
+
+- **Objective**: Integrate AI for natural language query parsing and semantic search.
+- **Steps**:
+    - Used Mistral AI for parsing natural language queries into structured filters.
+    - Implemented sentence embeddings using `sentence-transformers` for semantic similarity.
+    - Used FAISS for efficient similarity search.
+- **Challenges**:
+    - Faced issues with the Mistral API key and authentication.
+    - Encountered dimension mismatch errors between query embeddings and profile embeddings.
+- **Solutions**:
+    - Implemented a keyword-based query parser as a fallback when the Mistral API was unavailable.
+    - Ensured consistent embedding dimensions by generating embeddings for all profiles using `sentence-transformers`.
+
+### 3. Building the React Frontend
+
+- **Objective**: Create a React frontend for user interaction and displaying search results.
+- **Steps**:
+    - Set up a basic React application using Vite.
+    - Created components for the search bar, profile cards, and theme toggle.
+    - Implemented API calls to the FastAPI backend.
+- **Challenges**:
+    - Encountered difficulties in styling the components and handling asynchronous API calls.
+- **Solutions**:
+    - Cleaned up the Vite template and removed unnecessary files.
+    - Used CSS variables for theme customization and responsive design.
+    - Implemented proper error handling and loading states for API calls.
+
+### 4. Theme Customization and UI Enhancements
+
+- **Objective**: Enhance the UI with a dark/light theme toggle and attractive color combinations.
+- **Steps**:
+    - Implemented a theme toggle using React state and local storage.
+    - Defined CSS variables for theme-specific styles.
+    - Added hover effects and transitions for a better user experience.
+- **Challenges**:
+    - Ensuring high contrast and readability in both themes.
+    - Creating visually appealing and consistent styling across themes.
+- **Solutions**:
+    - Used a carefully selected color palette for both light and dark themes.
+    - Added borders to cards in dark mode for better visual separation.
+    - Improved typography with custom font families and letter spacing.
+
+### 5. Deployment to Render
+
+- **Objective**: Deploy the backend and frontend to a production environment.
+- **Steps**:
+    - Configured the backend for deployment on Render using a `render.yaml` file.
+    - Added a health check endpoint to the FastAPI application for Render's health checks.
+    - Updated the frontend to use the deployed backend URL.
+- **Challenges**:
+    - Initial deployment attempts on Vercel failed due to file size limits and dependency installation problems.
+    - Encountered issues with setting up the Render environment and configuring environment variables.
+- **Solutions**:
+    - Switched to deploying the backend on Render due to persistent issues with Vercel.
+    - Created a `render.yaml` file to specify the necessary configuration for Render deployment.
+    - Ensured that all environment variables were set correctly in Render.
+
+### 6. Addressing Deployment Issues
+
+- **Objective**: Resolve deployment issues related to file sizes and dependency installation.
+- **Steps**:
+    - Created `.vercelignore` files to exclude unnecessary files.
+    - Used the `--archive=tgz` flag to reduce deployment size.
+    - Specified compatible package versions in `requirements.txt`.
+    - Configured the `vercel.json` file with the correct Python runtime and install commands.
+- **Challenges**:
+    - File size limits on Vercel.
+    - Dependency installation failures due to incompatible package versions.
+- **Solutions**:
+    - Switched to deploying the backend on Render due to persistent issues with Vercel.
+    - Created a `render.yaml` file to specify the necessary configuration for Render deployment.
+    - Ensured that all environment variables were set correctly in Render.
+
+This iterative approach, involving continuous testing, debugging, and refactoring, ensured the successful development and deployment of the AIFindr application.
 
 ## 🙏 Acknowledgments
 

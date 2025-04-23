@@ -43,7 +43,6 @@ async def search(query: SearchQuery):
     try:
         # Step 1: Parse natural language query into filters
         filter_query = parse_query(query.query)
-        print(f"Parsed query: {filter_query}")
         
         if not filter_query:
             raise HTTPException(status_code=400, detail="Could not parse query")
